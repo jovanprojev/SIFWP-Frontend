@@ -16,7 +16,7 @@
 var MyApp = angular.module('avAngularStartupApp', ['ngRoute','ngDialog']);
 
 
-MyApp.constant('host','http://localhost:9966/web/');
+MyApp.constant('host','https://sifwa-backend.herokuapp.com');
 
 MyApp.run(function($rootScope,ngDialog){
 	var dialog;
