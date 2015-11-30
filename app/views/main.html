@@ -1,0 +1,42 @@
+<div>
+  <div class="row" STYLE="margin-bottom: 80px">
+    <form name="form">
+    <div class="col-lg-4">
+      <input type="text" class="form-control" name="start" cyrillic cyrillic-enabled="true" placeholder="Почетна дестинација" capitalize-first ng-model="start" required>
+      <div class="alert-danger">
+      <span class="error" ng-show="form.start.$dirty && form.start.$invalid && form.start.$error.required"> Задолжително поле!</span>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" class="form-control" name="end" cyrillic cyrillic-enabled="true" placeholder="Крајна дестинација" capitalize-first ng-model="end" required>
+      <div class="alert-danger">
+      <span class="error" ng-show="form.end.$dirty && form.end.$invalid && form.end.$error.required"> Задолжително поле!</span>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <button type="submit" class="btn btn-success kopce" ng-click="prebaruvaj()">Пребарувај</button>
+    </div>
+  </form>
+</div>
+
+  <table class="table table-striped">
+    <tr>
+      <th>Почетна дестинација</th>
+      <th>Крајна дестинација</th>
+      <th>Објавувач</th>
+      <th>Искуства</th>
+      <th>Датум</th>
+      <th ng-if="adminlogin">Измени/Избриши</th>
+    </tr>
+    <tr ng-repeat="x in notification">
+      <td>{{x.relation.startDestination}}</td>
+      <td>{{x.relation.endDestination}}</td>
+      <td>{{x.user.name}} {{x.user.lastName}} {{x.user.age}}</td>
+      <td>{{x.message}}</td>
+      <td>{{x.date|date}}</td>
+      <td ng-if="adminlogin">
+          <a ng-href="#/edit/{{x.id}}">Измени </a>
+          <a ng-click="izbrisiIskustvo(x.id)">Избриши </a>
+      </td>
+    </tr>
+</table>

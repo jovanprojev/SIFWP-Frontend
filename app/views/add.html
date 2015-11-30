@@ -1,0 +1,69 @@
+<div class="row">
+	<form name="form">
+		<div class="col-md-6 col-md-offset-1">
+			<h2>Сподели искуство</h2>
+			<div>
+				<label>Почетна дестинација</label>
+				<input type="text" class="form-control" name="start" cyrillic cyrillic-enabled="true" capitalize-first ng-model="notification.relation.startDestination" required/>
+					<div class="alert-danger">
+						<span class="error" ng-show="form.start.$dirty && form.start.$invalid && form.start.$error.required">Задолжително поле!</span>
+					</div>
+			</div>
+			<div>
+				<label>Крајна дестинација</label>
+				<input type="text" class="form-control" name="end" cyrillic cyrillic-enabled="true" capitalize-first ng-model="notification.relation.endDestination" required/>
+					<div class="alert-danger">
+						<span class="error" ng-show="form.end.$dirty && form.end.$invalid && form.end.$error.required">Задолжително поле!</span>
+					</div>
+			</div>
+			<div class="col-md-offset-2">
+				<h4>Објавувач</h4>
+					<div>
+						<label>Име</label>
+						<input type="text" class="form-control" name="ime" cyrillic cyrillic-enabled="true" capitalize-first ng-model="notification.user.name" required/>
+						<div class="alert-danger">
+							<span class="error" ng-show="form.ime.$dirty && form.ime.$invalid && form.ime.$error.required">Задолжително поле!</span>
+						</div>
+					</div>
+					<div>
+						<label>Презиме</label>
+						<input type="text" class="form-control" name="prezime" cyrillic cyrillic-enabled="true" capitalize-first ng-model="notification.user.lastName" required/>
+						<div class="alert-danger">
+							<span class="error" ng-show="form.prezime.$dirty && form.prezime.$invalid && form.prezime.$error.required">Задолжително поле!</span>
+						</div>
+					</div>
+					<div>
+						<label>Години</label>
+						<input type="number" min="14" name="godini" class="form-control" ng-model="notification.user.age" required/>
+						<div class="alert-danger">
+							<span class="error" ng-show="form.godini.$dirty && form.godini.$invalid && form.godini.$error.required">Задолжително поле!</span>
+						</div>
+					</div>
+			</div>
+			<div>
+				<label>Искуство</label>
+				<textarea style="resize:none" rows="5" type="text" name="iskustvo" class="form-control" cyrillic cyrillic-enabled="true" capitalize-first ng-model="notification.message" required/>
+				<div class="alert-danger">
+					<span class="error" ng-show="form.iskustvo.$dirty && form.iskustvo.$invalid && form.iskustvo.$error.required">Задолжително поле!</span>
+				</div>
+			</div>
+			<div>
+				<label>Датум</label>
+				<input type="date" class="form-control" name="data" cyrillic cyrillic-enabled="true" capitalize-first ng-model="notification.date" required/>
+				<div class="alert-danger">
+					<span class="error" ng-show="form.data.$dirty && form.data.$invalid && form.data.$error.required">Задолжително поле!</span>
+				</div>
+			</div>
+			<div class="col-md-offset-5">
+				<input type="submit" value="Внеси" class="btn btn-success kopce" ng-if="!editMode" ng-click="dodadiIskustvo()" />
+			</div>
+			<div class="col-md-offset-5">
+				<input type="submit" value="Зачувај" class="btn btn-success kopce" ng-if="editMode" ng-click="izmeniIskustvo()"/>
+			</div>
+		</div>
+	</form>
+
+	<div class="col-md-5">
+		<img src="../images/map_big.gif">
+	</div>
+</div>
