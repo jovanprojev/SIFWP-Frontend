@@ -1,5 +1,5 @@
-MyApp.controller('putController', ['$scope', 'notificationFactory','$routeParams','$location','$rootScope','$route',
-    function($scope, notificationFactory, $routeParams,$location,$rootScope,$route) {
+MyApp.controller('putController', ['$scope', 'notificationFactory','$routeParams','$location','$rootScope','$route','$filter',
+    function($scope, notificationFactory, $routeParams,$location,$rootScope,$route,$filter) {
 
         if(!$rootScope.adminlogin){
             $location.path('/');
