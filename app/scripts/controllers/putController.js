@@ -1,5 +1,5 @@
-MyApp.controller('putController', ['$scope', 'notificationFactory','$routeParams','$location',
-    function($scope, notificationFactory, $routeParams,$location) {
+MyApp.controller('putController', ['$scope', 'notificationFactory','$routeParams','$location','$filter',
+    function($scope, notificationFactory, $routeParams,$location,$filter) {
 
         var today = new Date();
         $scope.maxDatum =  $filter('date')(new Date(today),'yyyy-MM-dd');
