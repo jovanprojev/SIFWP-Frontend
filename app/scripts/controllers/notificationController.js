@@ -15,17 +15,7 @@ MyApp.controller('notificationController', ['$scope', 'notificationFactory','$fi
 		}
 
 		zemiIskustvo();
-
-		$scope.izmeniIskustvo=function(notification){
-			notificationFactory.putNotification(notification).then(
-				function(response){
-					console.log(response.data);
-				},
-				function(error){
-					alert('Обидете се повторно');
-				}
-			);
-		}
+		
 
 		$scope.izbrisiIskustvo=function(notification){
 			notificationFactory.deleteNotification(notification).then(

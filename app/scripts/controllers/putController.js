@@ -21,7 +21,7 @@ MyApp.controller('putController', ['$scope', 'notificationFactory','$routeParams
 
 
 
-        $scope.izmeniIskustvo = function () {
+        $scope.iskustvo = function () {
             notificationFactory.putNotification($scope.notification).then(
                 function (response) {
                     console.log(response.data);

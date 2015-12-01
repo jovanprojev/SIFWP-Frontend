@@ -1,5 +1,5 @@
 <div class="row">
-	<form name="form">
+	<form name="form" ng-submit="iskustvo()">
 		<div class="col-md-6 col-md-offset-1">
 			<h2>Сподели искуство</h2>
 			<div>
@@ -34,7 +34,7 @@
 					</div>
 					<div>
 						<label>Години</label>
-						<input type="number" min="14" name="godini" class="form-control" ng-model="notification.user.age" required/>
+						<input type="number" min="14" max="90" name="godini" class="form-control" ng-model="notification.user.age" required/>
 						<div class="alert-danger">
 							<span class="error" ng-show="form.godini.$dirty && form.godini.$invalid && form.godini.$error.required">Задолжително поле!</span>
 						</div>
@@ -49,16 +49,16 @@
 			</div>
 			<div>
 				<label>Датум</label>
-				<input type="date" class="form-control" name="data" cyrillic cyrillic-enabled="true" capitalize-first ng-model="notification.date" required/>
+				<input type="date" class="form-control" name="data" ng-model="notification.date" required/>
 				<div class="alert-danger">
 					<span class="error" ng-show="form.data.$dirty && form.data.$invalid && form.data.$error.required">Задолжително поле!</span>
 				</div>
 			</div>
 			<div class="col-md-offset-5">
-				<input type="submit" value="Внеси" class="btn btn-success kopce" ng-if="!editMode" ng-click="dodadiIskustvo()" />
+				<input type="submit" value="Внеси" class="btn btn-success kopce" ng-if="!editMode"/>
 			</div>
 			<div class="col-md-offset-5">
-				<input type="submit" value="Зачувај" class="btn btn-success kopce" ng-if="editMode" ng-click="izmeniIskustvo()"/>
+				<input type="submit" value="Зачувај" class="btn btn-success kopce" ng-if="editMode"/>
 			</div>
 		</div>
 	</form>
