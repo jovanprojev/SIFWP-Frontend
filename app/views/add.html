@@ -49,7 +49,7 @@
 			</div>
 			<div>
 				<label>Датум</label>
-				<input type="date" class="form-control" name="data" ng-model="notification.date" required/>
+				<input type="date" class="form-control" name="data" max="{{maxDatum}}" ng-model="notification.date" required/>
 				<div class="alert-danger">
 					<span class="error" ng-show="form.data.$dirty && form.data.$invalid && form.data.$error.required">Задолжително поле!</span>
 				</div>

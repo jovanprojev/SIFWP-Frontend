@@ -1,5 +1,8 @@
-MyApp.controller('addController', ['$scope', 'addFactory','$location',
-    function($scope, addFactory, $location) {
+MyApp.controller('addController', ['$scope', 'addFactory','$location','$filter',
+    function($scope, addFactory, $location,$filter) {
+
+    	var today = new Date();
+    	$scope.maxDatum =  $filter('date')(new Date(today),'yyyy-MM-dd');
 
     	$scope.iskustvo=function(){
 		addFactory.addKorisnik($scope.notification.user).then(

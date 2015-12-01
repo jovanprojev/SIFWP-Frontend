@@ -1,6 +1,9 @@
 MyApp.controller('putController', ['$scope', 'notificationFactory','$routeParams','$location',
     function($scope, notificationFactory, $routeParams,$location) {
 
+        var today = new Date();
+        $scope.maxDatum =  $filter('date')(new Date(today),'yyyy-MM-dd');
+
         var id = $routeParams.id;
 
         $scope.editMode=true;
