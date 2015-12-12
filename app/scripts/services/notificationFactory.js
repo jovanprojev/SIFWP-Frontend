@@ -51,6 +51,26 @@ MyApp
 				});
 			}
 
+			service.likes=function(id){
+				return $http({
+					method:'POST',
+					url: host +'rest/notifications/like',
+					params:{
+						'id':id
+					}
+				})
+			}
+
+			service.dislikes=function(id){
+				return $http({
+					method:'POST',
+					url: host +'rest/notifications/dislike',
+					params:{
+						'id':id
+					}
+				})
+			}
+
 		return service;
 	}
 ]);

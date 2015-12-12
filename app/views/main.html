@@ -3,7 +3,7 @@
     <form name="form">
     <div class="col-lg-4">
       <input type="text" class="form-control" name="start" cyrillic cyrillic-enabled="true" placeholder="Почетна дестинација" capitalize-first ng-model="start" required>
-      <div class="alert-danger">
+       <div class="alert-danger">
       <span class="error" ng-show="form.start.$dirty && form.start.$invalid && form.start.$error.required"> Задолжително поле!</span>
       </div>
     </div>
@@ -27,6 +27,7 @@
       <th>Искуства</th>
       <th>Датум</th>
       <th ng-if="adminlogin">Измени/Избриши</th>
+      <th ng-if="!adminlogin">Like/Dislike</th>
     </tr>
     <tr ng-repeat="x in notification">
       <td>{{x.relation.startDestination}}</td>
@@ -37,6 +38,12 @@
       <td ng-if="adminlogin">
           <a ng-href="#/edit/{{x.id}}">Измени </a>
           <a ng-click="izbrisiIskustvo(x.id)">Избриши </a>
+      </td>
+      <td ng-if="!adminlogin">
+        <i class="fa fa-thumbs-o-up" ng-if="!x.liked"  style="color:blue" ng-click="dodadiLike(x)">Like {{x.likes}}</i>
+        <i class="fa fa-thumbs-up" ng-if="x.liked" style="color:blue">Like {{x.likes}}</i>
+        <i class="fa fa-thumbs-o-down" ng-if="!x.disliked" style="color:blue" ng-click="dodadiDislike(x)">Dislike {{x.dislikes}}</i>
+        <i class="fa fa-thumbs-down" ng-if="x.disliked" style="color:blue">Dislike {{x.dislikes}}</i>
       </td>
     </tr>
 </table>

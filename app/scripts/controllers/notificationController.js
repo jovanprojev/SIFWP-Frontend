@@ -42,4 +42,28 @@ MyApp.controller('notificationController', ['$scope', 'notificationFactory','$fi
 				}
 			);
 		}
+
+		$scope.dodadiLike=function(notification){
+			notificationFactory.likes(notification.id).then(
+				function(response){
+					notification.likes=response.data.likes;
+					notification.liked = true;
+				},
+				function(error){
+					alert('Се случи грешка!');
+				}
+			);
+		}
+
+		$scope.dodadiDislike=function(notification){
+			notificationFactory.dislikes(notification.id).then(
+				function(response){
+					notification.dislikes=response.data.dislikes;
+					notification.disliked = true;
+				},
+				function(error){
+					alert('Се случи грешка!');
+				}
+			);
+		}
 }]);
