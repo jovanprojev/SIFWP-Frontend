@@ -1,6 +1,5 @@
 'use strict';
-var MyApp = angular.module('avAngularStartupApp', ['ngRoute','ngDialog']);
-
+var MyApp = angular.module('avAngularStartupApp', ['ngRoute','ngDialog','angularUtils.directives.dirPagination']);
 
 MyApp.constant('host','https://sifwa-backend.herokuapp.com/');
 

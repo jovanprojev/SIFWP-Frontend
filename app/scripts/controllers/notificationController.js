@@ -66,4 +66,14 @@ MyApp.controller('notificationController', ['$scope', 'notificationFactory','$fi
 				}
 			);
 		}
+
+		$scope.sortirajSporedLajkovi=function(){
+			$scope.notification = $filter('orderBy')($scope.notification, '-likes');
+			$scope.notification = $filter('limitTo')($scope.notification, 5, 0);
+		}
+
+		$scope.sortirajSporedDislajkovi=function(){
+			$scope.notification = $filter('orderBy')($scope.notification, '-dislikes');
+			$scope.notification = $filter('limitTo')($scope.notification, 5, 0);
+		}
 }]);

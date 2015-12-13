@@ -14,9 +14,16 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <button type="submit" class="btn btn-success kopce" ng-click="prebaruvaj()">Пребарувај</button>
+      <button type="submit" class="btn btn-primary kopce" ng-click="prebaruvaj()">Пребарувај</button>
     </div>
   </form>
+
+  <div class="row">
+    <div class="col-md-offset-4">
+      <button class="btn btn-success kopce" ng-click="sortirajSporedLajkovi()">Најдобри</button>
+      <button class="btn btn-danger kopce" ng-click="sortirajSporedDislajkovi()">Најлоши</button>
+    </div>
+  </div>
 </div>
 
   <table class="table table-striped">
@@ -29,7 +36,8 @@
       <th ng-if="adminlogin">Измени/Избриши</th>
       <th ng-if="!adminlogin">Like/Dislike</th>
     </tr>
-    <tr ng-repeat="x in notification">
+
+    <tr dir-paginate="x in notification | itemsPerPage: 5">
       <td>{{x.relation.startDestination}}</td>
       <td>{{x.relation.endDestination}}</td>
       <td>{{x.user.name}} {{x.user.lastName}} {{x.user.age}}</td>
@@ -39,6 +47,7 @@
           <a ng-href="#/edit/{{x.id}}">Измени </a>
           <a ng-click="izbrisiIskustvo(x.id)">Избриши </a>
       </td>
+
       <td ng-if="!adminlogin">
         <i class="fa fa-thumbs-o-up" ng-if="!x.liked"  style="color:blue" ng-click="dodadiLike(x)">Like {{x.likes}}</i>
         <i class="fa fa-thumbs-up" ng-if="x.liked" style="color:blue">Like {{x.likes}}</i>
@@ -46,4 +55,6 @@
         <i class="fa fa-thumbs-down" ng-if="x.disliked" style="color:blue">Dislike {{x.dislikes}}</i>
       </td>
     </tr>
-</table>
+  </table>
+
+  <dir-pagination-controls class="col-md-offset-5" ></dir-pagination-controls>
