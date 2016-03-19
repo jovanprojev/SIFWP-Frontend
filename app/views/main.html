@@ -34,6 +34,7 @@
       <th>Објавувач</th>
       <th>Искуства</th>
       <th>Датум</th>
+      <th>Мапа</th>
       <th ng-if="adminlogin">Измени/Избриши</th>
       <th ng-if="!adminlogin">Like/Dislike</th>
     </tr>
@@ -44,6 +45,7 @@
       <td>{{x.user.name}} {{x.user.lastName}} {{x.user.age}}</td>
       <td>{{x.message}}</td>
       <td>{{x.date|date}}</td>
+      <td><img  ng-click="map(x)" src="images/map.png" width="30" height="30"/></td>
       <td ng-if="adminlogin">
           <a ng-href="#/edit/{{x.id}}">Измени </a>
           <a ng-click="izbrisiIskustvo(x.id)">Избриши </a>

@@ -1,10 +1,9 @@
-MyApp.controller('notificationController', ['$scope', 'notificationFactory','$filter',
-    function($scope, notificationFactory, $filter) {
+MyApp.controller('notificationController', ['$scope', 'notificationFactory','$filter','ngDialog',
+    function($scope, notificationFactory, $filter,ngDialog) {
 
     	var zemiIskustvo=function(){
     	notificationFactory.getNotifications().then(
     		function(response){
-    			console.log(response.data);
 		    	$scope.notification = response.data;
 		    	$scope.notification = $filter('orderBy')($scope.notification, '-date');
 				},
@@ -65,6 +64,21 @@ MyApp.controller('notificationController', ['$scope', 'notificationFactory','$fi
 					alert('Се случи грешка!');
 				}
 			);
+		}
+
+		$scope.map=function(notification){
+			var dialog = ngDialog.open({
+				showClose:'true',
+				closeByEscape:'true',
+				closeByDocument:'true',
+				template:'views/map.html',
+				controller:'mapController',
+				data: {
+					mapNotification: notification
+				}
+
+
+			})
 		}
 
 		$scope.sortirajSporedLajkovi=function(){
