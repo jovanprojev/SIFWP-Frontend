@@ -203,4 +203,8 @@ input[type=submit] {
     height: 20%;
 }
 
+.legend{
+	background: white;
+}
+
 }
