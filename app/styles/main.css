@@ -91,6 +91,10 @@ body {
 @include box-shadow(0 0 200 px rgba(white, .5), 0 1 px 2 px rgba(black, .3));
 }
 
+.legend{
+	background-colo: white;
+}
+
 h1 {
     margin: -20px -20px 21px;
     line-height: 40px;
@@ -202,9 +206,4 @@ input[type=submit] {
 #map {
     height: 20%;
 }
-
-.legend{
-	background-color: white;
-}
-
 }
