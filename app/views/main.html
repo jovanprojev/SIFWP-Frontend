@@ -52,10 +52,10 @@
       </td>
 
       <td ng-if="!adminlogin">
-        <i class="fa fa-thumbs-o-up" ng-if="!x.liked"  style="color:blue" ng-click="dodadiLike(x)">Like {{x.likes}}</i>
-        <i class="fa fa-thumbs-up" ng-if="x.liked" style="color:blue">Like {{x.likes}}</i>
-        <i class="fa fa-thumbs-o-down" ng-if="!x.disliked" style="color:blue" ng-click="dodadiDislike(x)">Dislike {{x.dislikes}}</i>
-        <i class="fa fa-thumbs-down" ng-if="x.disliked" style="color:blue">Dislike {{x.dislikes}}</i>
+        <i class="fa fa-thumbs-o-up" ng-if="!x.liked"  style="color:blue; cursor: pointer" ng-click="dodadiLike(x)">Like {{x.likes}}</i>
+        <i class="fa fa-thumbs-up" ng-if="x.liked" style="color:blue; cursor: pointer">Like {{x.likes}}</i>
+        <i class="fa fa-thumbs-o-down" ng-if="!x.disliked" style="color:blue; cursor: pointer" ng-click="dodadiDislike(x)">Dislike {{x.dislikes}}</i>
+        <i class="fa fa-thumbs-down" ng-if="x.disliked" style="color:blue; cursor: pointer">Dislike {{x.dislikes}}</i>
       </td>
     </tr>
   </table>
