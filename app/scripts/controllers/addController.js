@@ -1,5 +1,5 @@
-MyApp.controller('addController', ['$scope', 'addFactory','$location','$filter','$rootScope',
-    function($scope, addFactory, $location,$filter,$rootScope) {
+MyApp.controller('addController', ['$scope', 'addFactory','$location','$filter','$rootScope','datetime',
+    function($scope, addFactory, $location,$filter,$rootScope,datetime) {
 
     	var today = new Date();
     	$scope.maxDatum =  $filter('date')(new Date(today),'yyyy-MM-dd');
@@ -15,6 +15,13 @@ MyApp.controller('addController', ['$scope', 'addFactory','$location','$filter',
 				alert("Ве молиме внесете пинови на мапата за да им помогнете на корисниците.");
 				return;
 			}
+			
+			var md = new Date();
+			if($scope.notification.date > md){
+				alert("Датумот е невалиден");
+				return;
+			}
+			
 		addFactory.addKorisnik($scope.notification.user).then(
 			function(response){
     				$scope.notification.user = response.data;

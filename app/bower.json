@@ -11,11 +11,12 @@
     "AngularJS-Toaster": "~0.4.8",
     "angular-route": "~1.2.26",
     "angular-resource": "~1.2.26",
-    "font-awesome": "fontawesome#~4.5.0"
+    "font-awesome": "fontawesome#~4.5.0",
+    "angular-datetime": "~3.0.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",
-    "ngDialog":"0.3.7",
+    "ngDialog": "0.3.7",
     "angular-scenario": "~1.2.0"
   },
   "appPath": "app"
