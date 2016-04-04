@@ -1,5 +1,10 @@
 MyApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {
+    templateUrl: 'views/home.html',
+    controller: 'homeController'
+  });
+  
+  $routeProvider.when('/view', {
     templateUrl: 'views/main.html',
     controller: 'notificationController'
   });

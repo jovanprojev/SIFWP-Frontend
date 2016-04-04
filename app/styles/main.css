@@ -101,6 +101,24 @@ body {
 	padding-left:48px;
 }
 
+.homeLegend{
+    margin: 0 auto;
+	width: 396px;
+}
+
+.slider{
+	width: 800px;
+	height: 60px;
+}
+
+.slider-element{
+	width: 80px;
+	margin: 10px;
+	float: left;
+	text-align: centar;
+	display:table-cell;
+}
+
 h1 {
     margin: -20px -20px 21px;
     line-height: 40px;

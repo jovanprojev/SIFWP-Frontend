@@ -32,7 +32,8 @@
 	<div class="container">
 	    <div class="header">
 	        <ul class="nav nav-pills pull-right">
-	            <li ><a href="" ng-click="naPateka()" target="_self">Искуства</a></li>
+				<li ><a href="" ng-click="naPateka()" target="_self">Дома</a></li>
+	            <li ><a href="#/view" target="_self">Искуства</a></li>
 	            <li><a ng-href="#/add">Додади искуство</a></li>
 	            <li><a ng-click="najava()" ng-if="!adminlogin">Админ</a></li>
 				<li><a ng-click="odjavise()" ng-if="adminlogin" >Одјави се</a></li>
@@ -76,6 +77,7 @@
 	<script src="scripts/controllers/loginController.js"></script>
 	<script src="scripts/controllers/putController.js"></script>
 	<script src="scripts/controllers/mapController.js"></script>
+	<script src="scripts/controllers/homeController.js"></script>
 	<!-- directives definition -->
 	<script src="scripts/directives/convertor.js"></script>
 	<script src="scripts/directives/capitalLetter.js"></script>
