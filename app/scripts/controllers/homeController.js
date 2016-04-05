@@ -1,10 +1,14 @@
-MyApp.controller('homeController', ['$scope', 'addFactory','$location','$filter','$rootScope','datetime',
-    function($scope, addFactory, $location,$filter,$rootScope,datetime) {
+MyApp.controller('homeController', ['$scope', 'notificationFactory','datetime',
+    function($scope, notificationFactory,datetime) {
 		
 		$scope.selectedIndex = 0;
+		var map;
+		var pinovi = [];
 		
 		$scope.select = function(index){
+			clearPins();
 			$scope.selectedIndex = index;
+			request($scope.sliderElements[index]);
 		}
 		
 		var init = function(){
@@ -68,17 +72,18 @@ MyApp.controller('homeController', ['$scope', 'addFactory','$location','$filter'
 				time: 4320
 			};
 			$scope.sliderElements.push(elem);
+			
 		}
 		
 		init();
-		
 		 window.initMap = function () {
             var directionsService = new google.maps.DirectionsService;
             var directionsDisplay = new google.maps.DirectionsRenderer;
-            var map = new google.maps.Map(document.getElementById('map'), {
+            map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 8,
                 center: {lat: 41.57, lng: 21.75}
             });
+			request ($scope.sliderElements[0]);
         }
 
 
@@ -104,6 +109,7 @@ MyApp.controller('homeController', ['$scope', 'addFactory','$location','$filter'
                 map: map,
                 icon: image,
             });
+			pinovi.push(marker);
         };
 
         function policijaNaPatot(pin, map) {
@@ -116,6 +122,7 @@ MyApp.controller('homeController', ['$scope', 'addFactory','$location','$filter'
                 map: map,
                 icon: image,
             });
+			pinovi.push(marker);
 
         };
 
@@ -129,6 +136,30 @@ MyApp.controller('homeController', ['$scope', 'addFactory','$location','$filter'
                 map: map,
                 icon: image,
             });
+			pinovi.push(marker);
         };
-
+		
+		function clearPins(){
+			for(var i = 0; i < pinovi.length; i++){
+				pinovi[i].setMap(null);
+			}
+		}
+		
+		function request (elem){
+			notificationFactory.findPinByMinutes(elem.time).then(
+			function(response){
+				var pins = response.data;
+				initPin(pins);
+			
+			}, function(error){
+				
+			});
+		}
+		
+		function initPin (pins){
+			for(index in pins){
+				var elem = pins [index]; 
+				dodadiOznaka(elem,map);
+			}
+		}
 }]);

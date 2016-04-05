@@ -70,6 +70,16 @@ MyApp
 					}
 				})
 			}
+			
+			service.findPinByMinutes=function(minutes){
+				return $http({
+					method:'GET',
+					url: host +'rest/pin/getPins',
+					params:{
+						'time':minutes
+					}
+				})
+			}
 
 		return service;
 	}
